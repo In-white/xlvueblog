@@ -72,6 +72,7 @@ export default {
         context.stroke();
         context.closePath();
 
+
         context.beginPath();
         context.font="12px  微软雅黑";
         //文字轮廓

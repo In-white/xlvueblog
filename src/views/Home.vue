@@ -9,16 +9,16 @@
       <Head aIndex="1"></Head>
 
       <!-- 中间内容 -->
-      <div style="margin-top: 50px;">
+      <div style="margin-top: 50px;" >
         <el-row :gutter="30">
 
           <!-- 左侧 -->
-          <el-col :span="13" :offset="3">
+          <el-col :span="17" :offset="1">
             <div class="grid-content bg-purple blog_bg_left"> 
 
               <el-row :gutter="20">
-                <el-col :span="12"><div style="margin: 15px 0px 15px 20px;color: blueviolet;">文章</div></el-col>
-                <el-col :span="12"><div style="float: right;margin: 10px 20px 0px 0px;">共 <span style="font-size: 28px;color: rgb(6, 154, 240);">{{total}}</span> 篇</div></el-col>
+                <el-col :span="12"><div style="margin: 15px 0px 15px 20px;color: blueviolet;"></div></el-col>
+                <el-col :span="12"><div style="float: right;margin: 10px 20px 0px 0px;">共 <span style="font-size: 28px;color:#67C23A ;">{{total}}</span> 篇</div></el-col>
               </el-row>
 
               <!-- 分割线 -->
@@ -34,8 +34,8 @@
                     <el-row :gutter="20">
                       <el-col :span="17">
                         <div>                        
-                           <h4>{{item.title}}</h4>
-                           <p style="font-size: 17px;">{{item.description}}</p>
+                           <h3>{{item.title}}</h3>
+                           <p style="font-size: 20px;">{{item.description}}</p>
                            <div>
                             <el-avatar style="vertical-align:middle" :src="item.tuser.avatar"></el-avatar>
                             <span style="margin-left: 5px;">{{item.tuser.username}}</span>
@@ -91,13 +91,13 @@
           </el-col>
 
           <!-- 右侧 -->
-          <el-col :span="6">
-            <div class="grid-content bg-purple ">
+          <el-col :span="5">
+            <div class="grid-content bg-purple blog_bg_right ">
               <!-- 简介 -->
               <el-card class="box-card">
                  <div style="text-align: center;">
-                   <img width="100" height="100" src="https://xdragon0.gitee.io/img/author.png" />
-                   <p style="line-height: 0;">XiaoL</p>
+                   <img width="120" height="120"  style=" border-radius:50%;" src="../assets/image/avatar.jpeg" />
+                   <p style="line-height: 0;">Inwhite</p>
                    <p style="font-size: 15px;">星光一点，点亮前方</p>
                   </div>
               </el-card>
@@ -145,7 +145,7 @@
           </el-col>
 
           <!-- 空白占位 -->
-          <el-col :span="3">
+          <el-col :span="1">
             <div class="grid-content bg-purple">
             </div>
           </el-col>
@@ -251,6 +251,7 @@ export default {
   .blog_card{
     width: 95%;
     margin: 2%;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0);
   }
   /* logo */
   .logo{
@@ -261,16 +262,17 @@ export default {
   }
   /* 左侧 */
   .blog_bg_left{
-    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0);
     width: 100%;
     min-height: 500px;
+    border: none;
   }
   /* 右侧 */
   .blog_bg_right{
-    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0);
     width: 100%;
     min-height: 500px;
   }
   /* 分割线 */
-  .fenge{ height:3px; border:none; border-top:3px solid  #1eb9e0;}
+  .fenge{ height:3px; border:none; border-top:3px solid  transparent;}
 </style>

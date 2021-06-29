@@ -77,7 +77,7 @@ export default {
 <style scoped>
     .blog_bg{
         box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
-        width: 60%;
+        width: 80%;
         margin-top: 5% !important;
         margin-bottom: 5% !important;
         margin: auto;

@@ -6,10 +6,10 @@
             class="el-menu-demo"
             mode="horizontal"
             @select="handleSelect"
-            background-color="#74787a"
-            text-color="#cdd1c5"
-            active-text-color="#ffd04b">
-            <el-menu-item class="logo"><router-link to="/">XL-STAR</router-link></el-menu-item>
+            background-color="Transparent"
+            text-color="#000000"
+            active-text-color="#67C23A">
+            <el-menu-item class="logo"><router-link to="/"> inwhite </router-link></el-menu-item>
             <el-menu-item index="1" style="margin-left: 10px;"><router-link to="/home">博客</router-link></el-menu-item>
             <el-menu-item index="2"><router-link to="/blogType">分类专栏</router-link></el-menu-item>
             <el-menu-item index="3"><router-link to="/blogTag">标签</router-link></el-menu-item>
@@ -67,6 +67,6 @@
       margin-left: 150px;
       font-size: 30px;
       font-family: 华文行楷;
-      color: #409eff !important; 
+      color: #67C23A !important;
     }
   </style>
