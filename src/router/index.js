@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Navbar from "../components/Navbar";
 
 Vue.use(VueRouter)
 
@@ -46,6 +47,16 @@ const routes = [
     name: 'BlogLinks',
     component: () => import('../views/BlogLinks.vue')
   },
+  {
+    path: '/navbar',
+    name: 'Navbar',
+    component:() =>import('../components/Navbar')
+  },
+  {
+    path: '/userIndex',
+    name: 'index',
+    component:() =>import('../views/user/index')
+  }
 ]
 
 const router = new VueRouter({

@@ -30,7 +30,7 @@
 
 <style>
   #app{
-    background-color: #f9f9f9;
+    background-color: #FFF;/*整体背景色*/
     height: 100%;
   }
   * {

@@ -4,39 +4,44 @@
         <el-backtop target=".wrapper">
             <i class="el-icon-caret-top"></i>
          </el-backtop>
-   
-        <Head></Head>
-        <div v-model="blogData" class="grid-content content bg-purple blog_bg "> 
-
-            <div style="padding: 1%;">
-                <el-avatar style="vertical-align:middle" :src="blogData.tuser.avatar"></el-avatar>
-                <span style="margin-left: 5px;">{{blogData.tuser.username}}</span>
-                <i style="margin-left: 20px;" class="el-icon-date"><span style="font-size: 18px;"> {{blogData.updateTime}}</span></i>
-                <i style="margin-left: 20px;" class="el-icon-view"><span style="font-size: 18px;"> {{blogData.views}}</span></i>
-                <i style="margin-left: 20px;" class="el-icon-chat-line-square"><span style="font-size: 18px;"> {{blogData.commentCount}}</span></i>
-                <el-button size="mini" style="float: right;margin: 1%;">
-                    <router-link to="/home">返回 <i class="el-icon-d-arrow-right"></i></router-link>
-                </el-button>
+    <el-container style="width: 90%;margin-left: 5%">
+      <el-header class="test"><Head></Head></el-header>
+      <el-container>
+        <el-aside width="20%"></el-aside>
+        <el-main>
+          <div v-model="blogData" class="blog_bg">
+            <div style="">
+              <span style="margin-left: 5px;">{{blogData.tuser.username}}</span>
+              <i style="margin-left: 20px;" class="el-icon-date"><span style="font-size: 18px;"> {{blogData.updateTime}}</span></i>
+              <i style="margin-left: 20px;" class="el-icon-view"><span style="font-size: 18px;"> {{blogData.views}}</span></i>
+              <i style="margin-left: 20px;" class="el-icon-chat-line-square"><span style="font-size: 18px;"> {{blogData.commentCount}}</span></i>
+              <el-button size="small" style="float: right;margin: 1%;">
+                <router-link to="/home">返回 <i class="el-icon-d-arrow-right"></i></router-link>
+              </el-button>
             </div>
             <div style="background-color: #DCDFE6;height: 1px;margin: 5px 0;"></div>
             <div>
-                <img style="width: 96%;height: 400px;margin: 2%;" :src="blogData.firstPicture">
+              <img style="width: 96%;height: 400px;margin: 2%;" :src="blogData.firstPicture">
             </div>
             <div style="text-align: center;">
-                <h4 >{{blogData.title}}</h4>
-                <el-tag>{{blogData.flag}}</el-tag>
-                <el-tag type="success" style="margin-left: 10px;">{{blogData.ttype.name}}</el-tag>
-                <el-tag v-for="(tag,index) in blogData.tblogTags" :key="index" type="info" style="margin-left: 10px;">{{tag.ttag.name}}</el-tag>
-                
+              <h4 >{{blogData.title}}</h4>
+              <el-tag>{{blogData.flag}}</el-tag>
+              <el-tag type="success" style="margin-left: 10px;">{{blogData.ttype.name}}</el-tag>
+              <el-tag v-for="(tag,index) in blogData.tblogTags" :key="index" type="info" style="margin-left: 10px;">{{tag.ttag.name}}</el-tag>
+
             </div>
             <div class="markdown-body" v-html="blogData.content" style="padding: 40px;"></div>
-                    <!-- 评论 -->
-        <Comment :blogId=id style="padding-bottom: 3px;"></Comment>
-        </div>
+            <!-- 评论 -->
+            <Comment :blogId=id style="padding-bottom: 3px;"></Comment>
+          </div>
+        </el-main>
+      </el-container>
+    </el-container>
 
         <!-- 页脚 -->
         <Foot></Foot>
   </div>
+
 </template>
 
 <script>
@@ -76,11 +81,15 @@ export default {
 
 <style scoped>
     .blog_bg{
-        box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
-        width: 80%;
-        margin-top: 5% !important;
+        box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0);
+        width: 100%;
+        /*margin-top: 5% !important;
         margin-bottom: 5% !important;
-        margin: auto;
+        margin: auto;*/
         min-height: 500px;
+    }
+    .test{/*固定head*/
+      position:sticky;
+      top: 0px;
     }
 </style>

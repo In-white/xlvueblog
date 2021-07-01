@@ -193,7 +193,7 @@ export default {
     text-transform: uppercase;
     transition: 0.5s;
     overflow: hidden;
-    -webkit-box-reflect: below 1px linear-gradient(transparent, #1113);
+    -webkit-box-reflect: below 1px linear-gradient(transparent, #409EFF);
   }
   a::before {
     content: '';

@@ -5,118 +5,78 @@
         <i class="el-icon-caret-top"></i>
       </el-backtop>
       
-      <!-- 头部导航 -->
-      <Head aIndex="1"></Head>
 
-      <!-- 中间内容 -->
-      <div style="margin-top: 50px;" >
-        <el-row :gutter="30">
-
-          <!-- 左侧 -->
-          <el-col :span="17" :offset="1">
-            <div class="grid-content bg-purple blog_bg_left"> 
-
-              <el-row :gutter="20">
-                <el-col :span="12"><div style="margin: 15px 0px 15px 20px;color: blueviolet;"></div></el-col>
-                <el-col :span="12"><div style="float: right;margin: 10px 20px 0px 0px;">共 <span style="font-size: 28px;color:#67C23A ;">{{total}}</span> 篇</div></el-col>
-              </el-row>
-
-              <!-- 分割线 -->
-              <div class="fenge"></div>
-              <!-- <el-divider></el-divider> -->
-
-              <!-- 文章 -->
+    <el-container style="width: 90%;margin-left: 5%">
+      <el-header class="test"><Head></Head></el-header>
+      <el-container>
+        <el-main>
+            <div class="blog_bg_left">
+              <div class=""></div>
               <div>
-                 <div class="blog_card" v-for="(item,index) in blogData" :key="index" >
-
-                 <router-link :to="'/blog/'+item.id">
-                  <el-card shadow="hover" :body-style="{ padding: '15px' }" >
-                    <el-row :gutter="20">
-                      <el-col :span="17">
-                        <div>                        
-                           <h3>{{item.title}}</h3>
-                           <p style="font-size: 20px;">{{item.description}}</p>
-                           <div>
-                            <el-avatar style="vertical-align:middle" :src="item.tuser.avatar"></el-avatar>
-                            <span style="margin-left: 5px;">{{item.tuser.username}}</span>
-                            <i style="margin-left: 20px;" class="el-icon-date"><span style="font-size: 18px;"> {{item.createTime}}</span></i>
+                <div class="blog_card" v-for="(item,index) in blogData" :key="index" >
+                  <el-row :gutter="20">
+                    <el-col :span="17">
+                      <div>
+                        <router-link :to="'/blog/'+item.id"><p style="color: #303133">{{item.title}}</p></router-link>
+                        <div>
+                          <el-tag style="margin-right: 10px;" ><span> {{item.flag}}</span></el-tag>
+                          <el-tag style="margin-right: 10px;" ><span > {{item.ttype.name}}</span></el-tag>
+                          <el-tag>
                             <i style="margin-left: 20px;" class="el-icon-view"><span style="font-size: 18px;"> {{item.views}}</span></i>
                             <i style="margin-left: 20px;" class="el-icon-chat-line-square"><span style="font-size: 18px;"> {{item.commentCount}}</span></i>
-                           </div>
-
+                            <i style="margin-left: 20px;" class="el-icon-chat-line-square"><span style="font-size: 18px;"> {{item.commentCount}}</span></i>
+                          </el-tag>
                         </div>
-                      </el-col>
-                      <el-col :span="7">
-                        <div>
-                          <el-image 
-                            style="width: 200px; height: 115px"
-                            :src="item.firstPicture" 
-                            >
-                          </el-image>
-                          <div style="margin-bottom: 10px;">
-                            <el-tag style="margin-right: 10px;" ><span> {{item.flag}}</span></el-tag>
-                            <el-tag style="margin-right: 10px;" type="success"><span > {{item.ttype.name}}</span></el-tag>
-                            <!-- <el-tag style="margin-right: 10px;" type="info" v-for="tag in item.tblogTags"><span> {{tag.ttag.name}}</span></el-tag> -->
-                           
-                          </div>
-                        </div>
-                      </el-col>
-                    </el-row>
-                    
-                  </el-card>
-                 </router-link>
-
-                  <el-divider></el-divider>      
-
-                 </div>
+                      </div>
+                    </el-col>
+                    <el-col :span="7">
+                      <i style="" ><span style="font-size: 17px;font-style: normal"> {{item.createTime}}</span></i>
+                    </el-col>
+                  </el-row>
+                  <el-divider></el-divider>
+                </div>
               </div>
 
               <div style="margin-left: 2%;padding-bottom: 2%;">
-                  <!-- 分页 -->
-                  <el-pagination
-                  background
-                  @size-change="handleSizeChange"
-                  @current-change="handleCurrentChange"
-                  :current-page.sync="currentPage"
-                  :page-size="size"
-                  layout="total, prev, pager, next"
-                  :total="total">
-                  </el-pagination>
+                <!-- 分页 -->
+                <el-pagination
+                    background
+                    @size-change="handleSizeChange"
+                    @current-change="handleCurrentChange"
+                    :current-page.sync="currentPage"
+                    :page-size="size"
+                    layout="total, prev, pager, next"
+                    :total="total">
+                </el-pagination>
               </div>
-
-
             </div>
-
-           
-          </el-col>
-
-          <!-- 右侧 -->
-          <el-col :span="5">
+        </el-main>
+        <el-aside width="20%">
             <div class="grid-content bg-purple blog_bg_right ">
               <!-- 简介 -->
-              <el-card class="box-card">
-                 <div style="text-align: center;">
-                   <img width="120" height="120"  style=" border-radius:50%;" src="../assets/image/avatar.jpeg" />
-                   <p style="line-height: 0;">Inwhite</p>
-                   <p style="font-size: 15px;">星光一点，点亮前方</p>
-                  </div>
+              <el-card shadow="hover" class="box-card">
+                <div style="text-align: center;">
+                  <img width="120" height="120"  style=" border-radius:50%;" src="../assets/image/avatar.jpeg" />
+                  <p style="line-height: 0;">Inwhite</p>
+                  <p style="font-size: 15px;">星光一点，点亮前方</p>
+                </div>
               </el-card>
 
               <!-- 分类专栏 -->
-              <el-card class="box-card" style="margin-top: 20px;">
+              <el-card  shadow="hover" class="box-card" style="margin-top: 20px;">
                 <div slot="header" class="clearfix">
                   <span>分类专栏</span>
                   <router-link to="/blogType">
-                    <el-button style="float: right; padding: 3px 0" type="text">more <i class="el-icon-d-arrow-right"></i></el-button>         
+                    <el-button style="float: right; padding: 3px 0" type="text">more <i class="el-icon-d-arrow-right"></i></el-button>
                   </router-link>
                 </div>
-                <div class="text item" v-for="(item,indexTypes) in types" :key="indexTypes" >             
-                      <span style="font-size: 14px;"  @click="getType(item.id)">                    
+                <div class="text item" v-for="(item,indexTypes) in types" :key="indexTypes" >
+                      <span style="font-size: 14px;"  @click="getType(item.id)">
                           <el-card v-if="item.id > 0" shadow="hover" style="margin-bottom: 5px;">
                             <el-link :underline="false">
                                {{item.name }}
                             </el-link>
-                            <span style="float: right;"> {{item.countType}}</span>                            
+                            <span style="float: right;"> {{item.countType}}</span>
                           </el-card>
                       </span>
                   <!-- <div v-if="index!=4" style="background-color: #DCDFE6;height: 1px;margin: 5px 0;"></div> -->
@@ -124,16 +84,16 @@
               </el-card>
 
               <!-- 热门文章 -->
-              <el-card class="box-card" style="margin-top: 20px;">
+              <el-card shadow="hover" class="box-card" style="margin-top: 20px;">
                 <div slot="header" class="clearfix">
                   <span>热门文章</span>
-                  <el-button style="float: right; padding: 3px 0" type="text">Top5</el-button>         
+                  <el-button style="float: right; padding: 3px 0" type="text">Top5</el-button>
                 </div>
                 <div class="text item" v-for="(item,index) in HotBlog" :key="index" >
                   <router-link :to="'/blog/'+ item.id">
                     <el-link :underline="false">
                       <span style="font-size: 14px;">
-                        <el-tag size="small">{{index + 1}}</el-tag> {{item.title}}  
+                        <el-tag size="small">{{index + 1}}</el-tag> {{item.title}}
                         <i style="margin-left: 5px;" class="el-icon-view"><span style="font-size: 13px;"> {{item.views}}</span></i>
                       </span>
                     </el-link>
@@ -142,15 +102,9 @@
                 </div>
               </el-card>
             </div>
-          </el-col>
-
-          <!-- 空白占位 -->
-          <el-col :span="1">
-            <div class="grid-content bg-purple">
-            </div>
-          </el-col>
-        </el-row>
-      </div>
+        </el-aside>
+      </el-container>
+    </el-container>
 
       <!-- <el-backtop target=".page-component__scroll .el-scrollbar__wrap"></el-backtop> -->
 
@@ -176,7 +130,7 @@ export default {
      mytype:'',
      myblogTags:[],
      btags:null,
-     aIndex: '1'
+     aIndex: '1',
    }
   },
   mounted() {
@@ -273,6 +227,10 @@ export default {
     width: 100%;
     min-height: 500px;
   }
+  .test{/*固定head*/
+    position:sticky;
+    top: 0px;
+  }
   /* 分割线 */
-  .fenge{ height:3px; border:none; border-top:3px solid  transparent;}
+  /*.fenge{ height:3px; border:none; border-top:3px solid  aliceblue;}*/
 </style>
